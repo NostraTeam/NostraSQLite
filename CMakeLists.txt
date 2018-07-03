@@ -29,3 +29,49 @@ install(DIRECTORY "include"
         "include" 
     COMPONENT 
         Develop)
+
+# Have the README.md in the install directory
+install(FILES "README.md" DESTINATION ".")
+install(FILES "CHANGELOG.md" DESTINATION ".")
+install(FILES "LICENSE.md" DESTINATION ".")
+
+
+
+include(CMakePackageConfigHelpers)
+
+write_basic_package_version_file("${CMAKE_CURRENT_BINARY_DIR}/NostraSQLiteConfigVersion.cmake"
+	VERSION "${NostraSQLite_VERSION}"
+	COMPATIBILITY AnyNewerVersion)
+
+export(EXPORT NostraSQLiteTargets
+	FILE "${CMAKE_CURRENT_BINARY_DIR}/NostraSQLiteConfig.cmake"
+	NAMESPACE Nostra::)
+
+configure_file("cmake/NostraSQLiteConfig.cmake" "${CMAKE_CURRENT_BINARY_DIR}/NostraSQLiteConfig.cmake" COPYONLY)
+
+set(CONFIG_PACKAGE_LOCATION "lib/cmake/NostraSQLite")
+
+install(EXPORT NostraSQLiteTargets
+	FILE
+		NostraSQLiteConfig.cmake
+	NAMESPACE
+		Nostra::
+	DESTINATION
+		${CONFIG_PACKAGE_LOCATION})
+
+install(
+  FILES
+    cmake/NostraSQLiteConfig.cmake
+    "${CMAKE_CURRENT_BINARY_DIR}/NostraSQLiteConfig.cmake"
+  DESTINATION
+    ${CONFIG_PACKAGE_LOCATION}
+  COMPONENT
+    Develop
+)
+
+
+configure_file("cmake/CPackConfig.cmake" "cmake/CPackConfig.cmake" @ONLY)
+
+include("${CMAKE_BINARY_DIR}/cmake/CPackConfig.cmake")
+
+include(CPack)
