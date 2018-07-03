@@ -4,7 +4,9 @@
 
 ### Features
 - **Additions**
-    - None
+    - Added SQLite
+    - Added CMake support
+    - Added CPack support
 
 - **Deletions**
     - None
