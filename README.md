@@ -17,6 +17,8 @@ or download the ZIP-compressed directly from GitHub using the link above.
 **This code uses an almost umodified version of the source code amalgamation that is provided by SQLite 
 (www.sqlite.org). The NostraTeam is not the author of SQLite.**
 
+The currently used SQLite version is 3.23.1.
+
 ## Changes from Standard-SQLite
 
 This project uses the files "sqlite3.h" and "sqlite3.c" from the SQLITE code amalgamation. Both of these 

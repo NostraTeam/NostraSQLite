@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 
 project(NostraSQLite 
-    VERSION 3.23.1
+    VERSION 1.0.0
     DESCRIPTION "A Nostra-compatible SQLite version."
     LANGUAGES C)
 
