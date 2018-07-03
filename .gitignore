@@ -1,32 +1,13 @@
-# Prerequisites
-*.d
+#Binary output folder
+/Build
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# IntelliJ files
+.idea
+cmake-build-debug
 
-# Precompiled Headers
-*.gch
-*.pch
+#VSCode settings
+.vscode/
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+#Visual Studio 2017 settings
+.vs/
+CMakeSettings.json
