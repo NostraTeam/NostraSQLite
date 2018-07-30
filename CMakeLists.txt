@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.8.2 FATAL_ERROR)
 
 project(NostraSQLite 
     VERSION 1.0.0
@@ -34,6 +34,15 @@ install(DIRECTORY "include"
 install(FILES "README.md" DESTINATION ".")
 install(FILES "CHANGELOG.md" DESTINATION ".")
 install(FILES "LICENSE.md" DESTINATION ".")
+
+
+
+#Install ld.so.conf.d file and add uninstall script
+if(${CMAKE_SYSTEM} MATCHES "Linux")
+	#Install .conf file with path to .so files
+	configure_file("cmake/nostrasqlite.conf.in" "nostrasqlite.conf" @ONLY)
+	install(FILES "${CMAKE_BINARY_DIR}/nostrasqlite.conf" DESTINATION "/etc/ld.so.conf.d")
+endif()
 
 
 
